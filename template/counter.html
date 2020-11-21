@@ -6,7 +6,9 @@
     <input type="submit" value="start">
 </form>
 <a>
-    {{counter}}
+    {% if counter != 0 %}
+        {{counter}}
+    {% endif %}
 </a>
 <!-- <p id="demo"></p> 
 <script> 
