@@ -15,11 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from clock.views import index,count,run
+from clock.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/',index,name='main_page'),
-    path('count/',count,name='time'),
-    path('run/',run,name='run')
+    path('',index,name='main_page'),
 ]

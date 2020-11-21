@@ -1,20 +1,16 @@
 <h1>
     my counter
 </h1>
-<form action="/index/" method="POST">{% csrf_token %}
-    <input type="text" name="values" id="time">
-    <input type="submit" value="start">
-</form>
-<a>
-    {% if counter != 0 %}
-        {{counter}}
-    {% endif %}
-</a>
-<!-- <p id="demo"></p> 
+
+<input type="text" name="values" id="time" value="Jan 5, 2021 15:37:25">
+
+<p id="demo"></p> 
 <script> 
-var deadline = new Date("Jan 5, 2018 15:37:25").getTime(); 
+val = document.getElementById('time').value;
+var deadline=new Date(val).getTime();
 var x = setInterval(function() { 
 var now = new Date().getTime(); 
+//console.log(now)
 var t = deadline - now; 
 var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
 var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
@@ -27,4 +23,5 @@ document.getElementById("demo").innerHTML = days + "d "
         document.getElementById("demo").innerHTML = "EXPIRED"; 
     } 
 }, 1000); 
-</script> -->
+</script> 
+  
