@@ -2,26 +2,39 @@
     my counter
 </h1>
 
-<input type="text" name="values" id="time" value="Jan 5, 2021 15:37:25">
-
-<p id="demo"></p> 
+<input type="number" name="values" id="time" value="2">
+<input type="button" id="submit" value="count" onclick="initiator()">
+<input type="button" id="add" value="Add" onclick="add()" disabled="true">
+ 
+<p id="counts"></p>
 <script> 
-val = document.getElementById('time').value;
-var deadline=new Date(val).getTime();
-var x = setInterval(function() { 
-var now = new Date().getTime(); 
-//console.log(now)
-var t = deadline - now; 
-var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
-var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
-var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
-var seconds = Math.floor((t % (1000 * 60)) / 1000); 
-document.getElementById("demo").innerHTML = days + "d "  
-+ hours + "h " + minutes + "m " + seconds + "s "; 
-    if (t < 0) { 
-        clearInterval(x); 
-        document.getElementById("demo").innerHTML = "EXPIRED"; 
-    } 
-}, 1000); 
+//Initiate the timer
+function initiator(){
+    document.getElementById("submit").disabled=true
+    var val=document.getElementById("time").value
+    run(val)
+}
+//Start the clock
+function run(val){
+    document.getElementById("add").disabled=false
+    document.getElementById("counts").innerHTML=val
+    x=setInterval(() => {
+        val -= 1
+        document.getElementById("counts").innerHTML=val
+        if (val==0){
+            clearInterval(x)
+            document.getElementById("counts").innerHTML='Ended'
+            document.getElementById("submit").disabled=false
+            document.getElementById("add").disabled=true
+        }
+    }, 1000)
+} 
+//Add more time to clock
+function add(){
+    clearInterval(x)
+    val=document.getElementById("counts").innerText
+    addedVal=document.getElementById("time").value
+    run(parseInt(val)+parseInt(addedVal))
+}
 </script> 
   
