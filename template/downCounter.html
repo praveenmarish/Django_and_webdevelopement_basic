@@ -1,0 +1,23 @@
+{% load static from staticfiles %}
+<head>
+  <link rel="stylesheet"  href="{%  static  'css/counter.css'  %}">
+  <script src="{% static 'script/counter.js' %}"></script>
+  <title>Down_counter</title>
+</head>
+<body>
+    <div class="center">
+        <h1>
+            My Down_counter
+        </h1>
+        <p>
+            <input type="number" id="time" name="values" value="2">
+        </p>
+        <p>
+            <input type="button" id="count" value="count" onclick="initiatedown()">
+            <input type="button" id="add" value="Add" onclick="add()" disabled="true">
+            <input type="button" id="reduce" value="Reduce" onclick="reduce()" disabled="true">
+            <input type="button" value="Back" onclick="history.go(-1);">
+        </p>
+        <p id="clock">00:00</p>
+    </div>
+</body>
