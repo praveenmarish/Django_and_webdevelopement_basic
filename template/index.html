@@ -2,12 +2,29 @@
 <h1>
     About:
 </h1>
+<h3>
+    Contents:
+</h3>
 <p>
-    This is a sample application for Down_counter and Up_counter.
+    This is a sample application for learning basic concepts of django framework including javascript, html, css, ajax, sqlite
 </p>
 <form action="/downCounter/">
     <input type="submit" value="Down_counter">
 </form>
 <form action="/counter/">
     <input type="submit" value="Up_counter">
+</form>
+<form action="save/" method="post">{% csrf_token %}
+    <h3>
+        save and retrive data from database in django:
+    </h3>
+    <p>
+        <input type="text" name="name" id="name" placeholder="enter name">
+    </p>
+    <p>
+        <input type="password" name="password" id="password" placeholder="enter pin">
+    </p>
+    <p>
+        <input type="submit" value="ok">
+    </p>
 </form>

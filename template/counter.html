@@ -11,7 +11,8 @@
         </h1>
         <p>
             <input type="button" id="Start" value="Start" onclick="intiateUp()">
-            <input type="button" value="Stop" onclick="stop()">
+            <input type="button" id="Stop" value="Stop" onclick="stop()" disabled="true">
+            <input type="button" id="Resume" value="Resume" onclick="resume()" disabled="true">
             <input type="button" value="Back" onclick="history.go(-1);">
         </p>
         <p id="upclock">00:00</p>

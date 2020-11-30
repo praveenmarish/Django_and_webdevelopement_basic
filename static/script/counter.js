@@ -56,17 +56,17 @@ function reduce(){
 function intiateUp(){
     var operation=document.getElementById("Start")
     if (operation.value == "Start"){
-       countUp()
+        document.getElementById("Stop").disabled=false
+        countUp(0)
     }
     else{
         clearInterval(y)
-        countUp()
+        countUp(0)
     }
 }
 
-function countUp(){
+function countUp(time){
     document.getElementById("Start").value="Reset"
-        var time=0
         y=setInterval(()=>{
             var min=parseInt(time/60)
             var sec=time%60
@@ -77,4 +77,15 @@ function countUp(){
 
 function stop(){
     clearInterval(y)
+    document.getElementById("Resume").disabled=false
+    document.getElementById("Stop").disabled=true
+}
+
+function resume(){
+    document.getElementById("Resume").disabled=true
+    document.getElementById("Stop").disabled=false
+    var val=document.getElementById("upclock").innerText
+    var sec=val.split(":")[1]
+    var min=val.split(":")[0]
+    countUp((parseInt(min)*60)+parseInt(sec))
 }
