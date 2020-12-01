@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from clock.views import index, downCounter, counter, save
+from clock.views import index, downCounter, counter
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -24,5 +24,4 @@ urlpatterns = [
     path('',index,name='main_page'),
     path('downCounter/',downCounter,name='Down_Counter'),
     path('counter/',counter,name='Up_counter'),
-    path('save/',save,name='save'),
 ]+ static(settings.STATIC_URL)
