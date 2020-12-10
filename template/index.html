@@ -1,4 +1,6 @@
+{% load static from staticfiles %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'script/counter.js' %}"></script>
 <title>index</title>
 <h1>
     About:
@@ -29,29 +31,10 @@
             <td><input type="password" name="pin" id="pin" placeholder="enter pin"></td>
         </tr>
         <tr>
-            <td><input type="submit" id="submit" value="ok"></td>
+            <td><input type="button" id="ok" value="ok" onclick="call()"></td>
         </tr>
     </table>
 </form>
-
-<script>
-
-    const form = document.getElementById('form');
-    form.addEventListener("submit", submitHandler);
-
-    function submitHandler(e) {
-        e.preventDefault();
-        $.ajax({
-            type        : 'POST',
-            url         : location.origin +"/",
-            data        : $('#form').serialize(),
-            dataType    : 'json',
-            success     : successFunction
-        });
-    }
-
-    function successFunction(msg) {
-        alert(msg['message']+'!')
-    }
-    
-</script>
+<form action="/namePin/">
+    <input type="submit" value="show_details">
+</form>

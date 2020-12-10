@@ -14,7 +14,7 @@ def index(request):
             post.pin=request.POST.get('pin')
             post.save()
             return JsonResponse({
-                    'message': 'success'
+                    'message': 'success',
                 })
         else:
             return JsonResponse({
@@ -24,3 +24,12 @@ def index(request):
 
 def counter(request):
     return render(request,'counter.html')
+
+def namePin(request):
+    namePin=Data.objects.all()
+    return render(request,'nameAndPin.html',{'namepin':namePin})
+
+def delete(request, id):
+    data=Data.objects.get(id=id)
+    data.delete()
+    return redirect('namePin')

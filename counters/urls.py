@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from clock.views import index, downCounter, counter
+from clock.views import index, downCounter, counter, namePin, delete
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -24,4 +24,6 @@ urlpatterns = [
     path('',index,name='main_page'),
     path('downCounter/',downCounter,name='Down_Counter'),
     path('counter/',counter,name='Up_counter'),
+    path('namePin/',namePin,name='namePin'),
+    path('delete/<int:id>',delete, name='delete'),
 ]+ static(settings.STATIC_URL)

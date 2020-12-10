@@ -1,0 +1,8 @@
+<p>
+    {% for i in namepin %}
+        id  :{{ i.id }}<br>
+        Name:{{ i.name }}<br>
+        pin :{{ i.pin }}<br>
+        <a href="{% url "delete" i.id %}">delete</a><br>
+    {% endfor %}
+</p>

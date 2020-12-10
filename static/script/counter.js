@@ -89,3 +89,18 @@ function resume(){
     var min=val.split(":")[0]
     countUp((parseInt(min)*60)+parseInt(sec))
 }
+
+function call(){
+    $.ajax({
+        type        : 'POST',
+        url         : location.origin +"/",
+        data        : $('#form').serialize(),
+        dataType    : 'json',
+        success     : successFunction
+    });
+
+    function successFunction(msg) {
+        alert(msg['message']+'!')
+        console.log(msg['name'])
+    }
+}
