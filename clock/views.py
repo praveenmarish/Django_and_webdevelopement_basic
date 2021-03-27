@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from .models import Data
+from .models import Data, MultipleImageUpload
 
 # Create your views here.
 def downCounter(request):
@@ -33,3 +33,12 @@ def delete(request, id):
     data=Data.objects.get(id=id)
     data.delete()
     return redirect('namePin')
+
+def upload_images(request):
+    if request.method=='POST':
+        img = request.FILES.getlist('images')
+        for image in img:
+            MultipleImageUpload.objects.create(images=image)
+    
+    all_images = MultipleImageUpload.objects.all()
+    return render(request, 'images.html', {'all_images':all_images})

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from clock.views import index, downCounter, counter, namePin, delete
+from clock.views import index, downCounter, counter, namePin, delete, upload_images
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -26,4 +26,6 @@ urlpatterns = [
     path('counter/',counter,name='Up_counter'),
     path('namePin/',namePin,name='namePin'),
     path('delete/<int:id>',delete, name='delete'),
-]+ static(settings.STATIC_URL)
+    path('upload_images/', upload_images, name='upload_images')
+]+ static(settings.STATIC_URL)+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+

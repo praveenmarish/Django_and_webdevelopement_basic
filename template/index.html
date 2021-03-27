@@ -1,4 +1,4 @@
-{% load static from staticfiles %}
+{% load static from static %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'script/counter.js' %}"></script>
 <title>index</title>
@@ -37,4 +37,8 @@
 </form>
 <form action="/namePin/">
     <input type="submit" value="show_details">
+</form>
+
+<form action="/upload_images/">
+    <input type="submit" value="image upload">
 </form>
